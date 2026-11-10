@@ -352,6 +352,7 @@ button:focus-visible,select:focus-visible,input:focus-visible,.fmt:focus-visible
       <h2><span class="pino"></span> Ajustes deste computador</h2>
       <p class="muted small" style="margin-top:0">Os modelos, estilos, turmas e fontes são mantidos pela pessoa responsável e chegam aqui automaticamente quando você abre o site. Abaixo ficam só os ajustes da <b>sua impressora</b> (salvos neste computador).</p>
       <div class="aviso info small" id="info-catalogo"></div>
+      <div class="barra-acoes"><button class="btn contorno" id="btn-entrar-editor">✎ Entrar no modo editor</button></div>
     </div>
 
     <div class="card so-editor">
@@ -1852,6 +1853,7 @@ function atualizarModoUI(){
     const pl=$('#pill-editor'); if(pl){ pl.classList.toggle('pend',pend); pl.textContent=pend?'✎ MODO EDITOR · não publicado':'✎ MODO EDITOR'; }
   }
 }
+$('#btn-entrar-editor').onclick=()=>{ try{ localStorage.setItem(LS_MODO,'1'); }catch(e){} location.href=location.pathname; };
 $('#btn-sair-editor').onclick=()=>{ try{ localStorage.removeItem(LS_MODO); }catch(e){} location.href=location.pathname; };
 $('#btn-publicar').onclick=async()=>{
   const st=$('#pub-status'); st.classList.remove('hidden'); st.className='aviso info small'; st.textContent='Preparando o novo index.html…';
